@@ -31,7 +31,6 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
   data,
 }) => {
   const [exportClicked, setExportClicked] = useState(false);
-  const [accountClicked, setAccountClicked] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
 
   const handleExportClick = () => {
@@ -42,13 +41,11 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
     if (exportClicked) {
       setDialogOpen(true);
     }
-    setAccountClicked(true);
   };
 
   const handleDialogClose = () => {
     setDialogOpen(false);
     setExportClicked(false);
-    setAccountClicked(false);
   };
 
   return (

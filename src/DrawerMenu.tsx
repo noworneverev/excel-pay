@@ -47,7 +47,6 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
     setDialogOpen(false);
     setExportClicked(false);
   };
-
   return (
     <>
       <Drawer anchor="left" open={isOpen} onClose={() => toggleDrawer(false)}>
@@ -130,12 +129,34 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({
 
       {/* Dialog */}
       <Dialog open={dialogOpen} onClose={handleDialogClose}>
-        <DialogTitle>提示</DialogTitle>
+        <DialogTitle>通知</DialogTitle>
+
         <DialogContent>
-          {data?.[0]?.data?.[1]?.[2]?.v
-            ? `${data[0].data[1][2].v}萬已匯到指定帳戶！`
-            : "資料不可用"}
+          {data.map((row: any, rowIndex: number) => {
+            if (!row.data) {
+              return null;
+            }
+
+            // Skip the first row (assumed as headers)
+            return row.data
+              .slice(1) // Exclude the first row
+              .map((nestedRow: any, nestedRowIndex: number) => {
+                const date = nestedRow?.[0]?.v;
+                const name = nestedRow?.[1]?.v;
+                const amount = nestedRow?.[2]?.v;
+
+                if (amount && name && date) {
+                  return (
+                    <div key={`${rowIndex}-${nestedRowIndex}`}>
+                      {`${amount} 萬元已成功匯入帳戶 ${name}！交易時間：${date}`}
+                    </div>
+                  );
+                }
+                return null;
+              });
+          })}
         </DialogContent>
+
         <DialogActions>
           <Button onClick={handleDialogClose} color="primary">
             關閉

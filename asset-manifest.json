@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/excel-pay/static/css/main.f3ff066d.css",
-    "main.js": "/excel-pay/static/js/main.8968ddee.js",
+    "main.js": "/excel-pay/static/js/main.d9992d11.js",
     "static/js/453.ad736586.chunk.js": "/excel-pay/static/js/453.ad736586.chunk.js",
     "index.html": "/excel-pay/index.html",
     "main.f3ff066d.css.map": "/excel-pay/static/css/main.f3ff066d.css.map",
-    "main.8968ddee.js.map": "/excel-pay/static/js/main.8968ddee.js.map",
+    "main.d9992d11.js.map": "/excel-pay/static/js/main.d9992d11.js.map",
     "453.ad736586.chunk.js.map": "/excel-pay/static/js/453.ad736586.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f3ff066d.css",
-    "static/js/main.8968ddee.js"
+    "static/js/main.d9992d11.js"
   ]
 }

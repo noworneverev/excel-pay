@@ -2,14 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { ThemeProvider, createTheme, THEME_ID } from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+const themeOfTheBestParty = createTheme({
+  palette: {
+    primary: {
+      main: '#009a00',
+    },
+  },
+});
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={{ [THEME_ID]: themeOfTheBestParty }}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
